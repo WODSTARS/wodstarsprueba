@@ -20,11 +20,26 @@ body{
 
 h1{color:gold;}
 
+.encabezado{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  margin:24px 0 10px;
+}
+
 .logo-wodstar{
-  width:180px;
+  width:230px;
   max-width:70vw;
   height:auto;
-  margin:18px 0 8px;
+  filter:drop-shadow(0 0 12px rgba(255,215,0,0.45));
+}
+
+.encabezado h1{
+  margin:0;
+  font-size:2rem;
+  letter-spacing:0;
+  text-align:center;
 }
 
 #lista{
@@ -354,14 +369,18 @@ input,select{
     justify-content:flex-start;
   }
 
-  h1{
-    font-size:1.55rem;
-    text-align:center;
+  .encabezado{
+    margin-top:18px;
     padding:0 12px;
   }
 
+  .encabezado h1{
+    font-size:1.55rem;
+    text-align:center;
+  }
+
   .logo-wodstar{
-    width:150px;
+    width:185px;
   }
 
   #precios{
@@ -409,8 +428,10 @@ input,select{
 
 <body>
 
-<img class="logo-wodstar" src="wodstar-logo.png" alt="WODSTAR">
-<h1>WODSTARS COMPETENCIAS</h1>
+<header class="encabezado">
+  <img class="logo-wodstar" src="wodstar-logo-transparent.png" alt="WODSTAR">
+  <h1>WODSTARS COMPETENCIAS</h1>
+</header>
 
 <div id="lista"></div>
 <section id="precios">
@@ -512,7 +533,7 @@ function inscribir(comp){
 function cerrar(){ modal.innerHTML=""; }
 
 function mostrarPlanes(){
-  const mensaje = encodeURIComponent("Quiero cotizar mi competencia en wodsts");
+  const mensaje = encodeURIComponent("Hola 👋🏆 quiero cotizar mi competencia en WODSTARS. Me interesan los planes para mi evento 💪✨");
   const whatsapp = `https://wa.me/525636501351?text=${mensaje}`;
 
   modal.innerHTML=`
