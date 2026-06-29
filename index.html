@@ -30,25 +30,35 @@ body{
   width:100%;
   max-width:1180px;
   margin:0 auto;
-  padding:28px 18px 42px;
+  padding:76px 18px 42px;
 }
 
 .topbar{
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-end;
   align-items:center;
   gap:14px;
   margin-bottom:28px;
 }
 
 .back-link{
-  display:inline-block;
+  position:fixed;
+  top:14px;
+  left:14px;
+  z-index:20;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   background:var(--accent);
   color:#000;
-  padding:11px 16px;
-  border-radius:10px;
+  padding:10px 14px;
+  border:1px solid rgba(0,0,0,.18);
+  border-radius:999px;
+  box-shadow:0 8px 22px rgba(0,0,0,.35);
   text-decoration:none;
   font-weight:bold;
+  font-size:.92rem;
+  line-height:1;
 }
 
 .brand{
@@ -185,16 +195,20 @@ body{
 
 @media(max-width:620px){
   .page{
-    padding:18px 12px 32px;
+    padding:66px 12px 32px;
   }
 
   .topbar{
-    align-items:stretch;
-    flex-direction:column;
+    justify-content:center;
+    margin-bottom:18px;
   }
 
   .back-link{
-    text-align:center;
+    top:calc(10px + env(safe-area-inset-top));
+    left:10px;
+    max-width:calc(100vw - 20px);
+    padding:9px 12px;
+    font-size:.82rem;
   }
 
   .hero{
@@ -218,7 +232,7 @@ body{
 <body>
 <main class="page">
   <div class="topbar">
-    <a class="back-link" href="competencia2.html">Volver a la competencia</a>
+    <a class="back-link" href="../competencia2.html">Volver a la competencia</a>
     <div class="brand">WODSTARS HIGHLIGHTS</div>
   </div>
 
