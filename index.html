@@ -23,7 +23,7 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:'Segoe UI',sans-serif;
+  font-family:'Segoe UI',Arial,sans-serif;
 }
 
 .page{
@@ -31,14 +31,6 @@ body{
   max-width:1180px;
   margin:0 auto;
   padding:76px 18px 42px;
-}
-
-.topbar{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  gap:14px;
-  margin-bottom:28px;
 }
 
 .back-link{
@@ -52,19 +44,18 @@ body{
   background:var(--accent);
   color:#000;
   padding:10px 14px;
-  border:1px solid rgba(0,0,0,.18);
   border-radius:999px;
   box-shadow:0 8px 22px rgba(0,0,0,.35);
   text-decoration:none;
-  font-weight:bold;
+  font-weight:800;
   font-size:.92rem;
-  line-height:1;
 }
 
 .brand{
   color:var(--accent);
-  font-weight:bold;
-  letter-spacing:0;
+  font-weight:800;
+  text-align:right;
+  margin-bottom:26px;
 }
 
 .hero{
@@ -75,9 +66,9 @@ body{
   border:1px solid var(--line);
   border-radius:16px;
   background:
-    linear-gradient(rgba(0,0,0,0.15),rgba(0,0,0,0.86)),
+    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.86)),
     radial-gradient(circle at top right,#4a3c00,#070707 54%);
-  box-shadow:0 0 22px rgba(255,215,0,0.18);
+  box-shadow:0 0 22px rgba(255,215,0,.18);
   margin-bottom:26px;
 }
 
@@ -89,7 +80,7 @@ body{
 
 .hero p{
   color:var(--muted);
-  font-size:1.1rem;
+  font-size:1.05rem;
   margin:0;
   max-width:680px;
   line-height:1.45;
@@ -113,8 +104,8 @@ body{
   background:var(--accent);
   padding:7px 10px;
   border-radius:999px;
-  font-size:0.85rem;
-  font-weight:bold;
+  font-size:.85rem;
+  font-weight:800;
 }
 
 .gallery{
@@ -128,18 +119,12 @@ body{
   border:1px solid var(--line);
   border-radius:12px;
   overflow:hidden;
-  box-shadow:0 0 14px rgba(255,215,0,0.08);
+  box-shadow:0 0 14px rgba(255,215,0,.08);
 }
 
 .photo-slot{
   aspect-ratio:4/3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:0;
-  background:
-    linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.76)),
-    radial-gradient(circle at center,#3b3100,#050505 60%);
+  background:#050505;
 }
 
 .photo-slot img{
@@ -147,14 +132,6 @@ body{
   height:100%;
   object-fit:cover;
   display:block;
-}
-
-.photo-slot img[src="wodstar-logo-transparent.png"]{
-  width:145px;
-  height:auto;
-  max-width:70%;
-  object-fit:contain;
-  filter:drop-shadow(0 0 12px rgba(255,215,0,0.35));
 }
 
 .photo-info{
@@ -173,20 +150,6 @@ body{
   line-height:1.4;
 }
 
-.note{
-  margin-top:22px;
-  padding:16px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  background:#080808;
-  color:var(--muted);
-  line-height:1.5;
-}
-
-.note strong{
-  color:var(--accent);
-}
-
 @media(max-width:900px){
   .gallery{
     grid-template-columns:repeat(2,1fr);
@@ -198,17 +161,16 @@ body{
     padding:66px 12px 32px;
   }
 
-  .topbar{
-    justify-content:center;
-    margin-bottom:18px;
-  }
-
   .back-link{
     top:calc(10px + env(safe-area-inset-top));
     left:10px;
-    max-width:calc(100vw - 20px);
     padding:9px 12px;
     font-size:.82rem;
+  }
+
+  .brand{
+    text-align:center;
+    margin-bottom:18px;
   }
 
   .hero{
@@ -231,103 +193,82 @@ body{
 
 <body>
 <main class="page">
-  <div class="topbar">
-    <a class="back-link" href="../competencia2.html">Volver a la competencia</a>
-    <div class="brand">WODSTARS HIGHLIGHTS</div>
-  </div>
+  <a class="back-link" href="https://wodstars.github.io/WODStars/competencia2.html">Volver a la competencia</a>
+  <div class="brand">WODSTARS HIGHLIGHTS</div>
 
   <section class="hero">
     <div>
       <h1>Moonlight Games</h1>
-      <p>Highlights de competencia organizados para mostrar los mejores momentos del evento de forma limpia, rapida y adaptable a cualquier pantalla.</p>
+      <p>Highlights de competencia organizados para mostrar los mejores momentos del evento.</p>
     </div>
   </section>
 
   <div class="section-title">
     <h2>Galeria del evento</h2>
-    <span class="counter">6 espacios listos</span>
+    <span class="counter">6 fotos</span>
   </div>
 
   <section class="gallery">
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-01.jpg" data-base="fotos/highlight-01" alt="Inicio del evento" onerror="probarOtraFoto(this)">
+        <img src="fotos/highlight-01.jpg" alt="Inicio del evento">
       </div>
       <div class="photo-info">
         <h3>Inicio del evento</h3>
-        <p> la primera foto destacada de la competencia.</p>
+        <p>Primera foto destacada de la competencia.</p>
       </div>
     </article>
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-02.jpg" data-base="fotos/highlight-02" alt="Atletas en accion" onerror="probarOtraFoto(this)">
+        <img src="fotos/highlight-02.jpg" alt="Atletas en accion">
       </div>
       <div class="photo-info">
         <h3>Atletas en accion</h3>
-        <p>Momento principal del wod, levantamiento o prueba del dia.</p>
+        <p>Momento principal del wod o prueba del dia.</p>
       </div>
     </article>
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-03.jpg" data-base="fotos/highlight-03" alt="Comunidad" onerror="probarOtraFoto(this)">
+        <img src="fotos/highlight-03.jpg" alt="Comunidad">
       </div>
       <div class="photo-info">
         <h3>Comunidad</h3>
-        <p>Foto de publico, boxes, equipos o ambiente del evento.</p>
+        <p>Ambiente, publico o equipos del evento.</p>
       </div>
     </article>
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-04.jpg" data-base="fotos/highlight-04" alt="Momentos clave" onerror="probarOtraFoto(this)">
+        <img src="fotos/highlight-04.jpg" alt="Momentos clave">
       </div>
       <div class="photo-info">
         <h3>Momentos clave</h3>
-        <p>Espacio para capturas importantes de la jornada.</p>
+        <p>Capturas importantes de la jornada.</p>
       </div>
     </article>
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-05.jpg" data-base="fotos/highlight-05" alt="Staff y jueces" onerror="probarOtraFoto(this)">
+        <img src="fotos/highlight-05.jpg" alt="Staff y jueces">
       </div>
       <div class="photo-info">
         <h3>Staff y jueces</h3>
-        <p>Foto del equipo que hizo posible la competencia.</p>
+        <p>El equipo que hizo posible la competencia.</p>
       </div>
     </article>
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-06.jpg" data-base="fotos/highlight-06" alt="Cierre del evento" onerror="probarOtraFoto(this)">
+        <img src="fotos/highlight-06.jpg" alt="Cierre del evento">
       </div>
       <div class="photo-info">
         <h3>Cierre del evento</h3>
-        <p>Espacio para la foto final o momento mas memorable.</p>
+        <p>Foto final o momento mas memorable.</p>
       </div>
     </article>
   </section>
-
-  
 </main>
-<script>
-function probarOtraFoto(img){
-  const extensiones = ["jpg","jpeg","png","webp"];
-  const intento = Number(img.dataset.intento || 0) + 1;
-  const base = img.dataset.base;
-
-  if(intento < extensiones.length){
-    img.dataset.intento = intento;
-    img.src = `${base}.${extensiones[intento]}`;
-    return;
-  }
-
-  img.onerror = null;
-  img.removeAttribute("data-base");
-  img.src = "wodstar-logo-transparent.png";
-}
-</script>
 </body>
 </html>
