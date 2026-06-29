@@ -237,7 +237,7 @@ body{
   <section class="gallery">
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-01.jpg" alt="Inicio del evento" onerror="this.onerror=null;this.src='wodstar-logo-transparent.png';">
+        <img src="fotos/highlight-01.jpg" data-base="fotos/highlight-01" alt="Inicio del evento" onerror="probarOtraFoto(this)">
       </div>
       <div class="photo-info">
         <h3>Inicio del evento</h3>
@@ -247,7 +247,7 @@ body{
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-02.jpg" alt="Atletas en accion" onerror="this.onerror=null;this.src='wodstar-logo-transparent.png';">
+        <img src="fotos/highlight-02.jpg" data-base="fotos/highlight-02" alt="Atletas en accion" onerror="probarOtraFoto(this)">
       </div>
       <div class="photo-info">
         <h3>Atletas en accion</h3>
@@ -257,7 +257,7 @@ body{
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-03.jpg" alt="Comunidad" onerror="this.onerror=null;this.src='wodstar-logo-transparent.png';">
+        <img src="fotos/highlight-03.jpg" data-base="fotos/highlight-03" alt="Comunidad" onerror="probarOtraFoto(this)">
       </div>
       <div class="photo-info">
         <h3>Comunidad</h3>
@@ -267,7 +267,7 @@ body{
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-04.jpg" alt="Momentos clave" onerror="this.onerror=null;this.src='wodstar-logo-transparent.png';">
+        <img src="fotos/highlight-04.jpg" data-base="fotos/highlight-04" alt="Momentos clave" onerror="probarOtraFoto(this)">
       </div>
       <div class="photo-info">
         <h3>Momentos clave</h3>
@@ -277,7 +277,7 @@ body{
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-05.jpg" alt="Staff y jueces" onerror="this.onerror=null;this.src='wodstar-logo-transparent.png';">
+        <img src="fotos/highlight-05.jpg" data-base="fotos/highlight-05" alt="Staff y jueces" onerror="probarOtraFoto(this)">
       </div>
       <div class="photo-info">
         <h3>Staff y jueces</h3>
@@ -287,7 +287,7 @@ body{
 
     <article class="photo-card">
       <div class="photo-slot">
-        <img src="fotos/highlight-06.jpg" alt="Cierre del evento" onerror="this.onerror=null;this.src='wodstar-logo-transparent.png';">
+        <img src="fotos/highlight-06.jpg" data-base="fotos/highlight-06" alt="Cierre del evento" onerror="probarOtraFoto(this)">
       </div>
       <div class="photo-info">
         <h3>Cierre del evento</h3>
@@ -298,5 +298,22 @@ body{
 
   
 </main>
+<script>
+function probarOtraFoto(img){
+  const extensiones = ["jpg","jpeg","png","webp"];
+  const intento = Number(img.dataset.intento || 0) + 1;
+  const base = img.dataset.base;
+
+  if(intento < extensiones.length){
+    img.dataset.intento = intento;
+    img.src = `${base}.${extensiones[intento]}`;
+    return;
+  }
+
+  img.onerror = null;
+  img.removeAttribute("data-base");
+  img.src = "wodstar-logo-transparent.png";
+}
+</script>
 </body>
 </html>
